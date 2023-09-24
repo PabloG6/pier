@@ -3,11 +3,12 @@ defmodule Pier.OpenApi.Schema.Operation do
     :id,
     :method,
     :path,
-    :name,
+
     :tags,
     :description,
     :path_params,
     :title,
+    :function_name,
     :query_params,
     :deprecated,
     :hijack_response,

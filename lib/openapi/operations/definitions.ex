@@ -10,7 +10,7 @@ defmodule Pier.OpenApi.Operations.Definitions do
 
   def retrieve_metadata({name, spec}) do
     Logger.metadata(module_name: __MODULE__)
-    Logger.debug("retrieving metadata for type definition: #{name}")
+    # Logger.debug("retrieving metadata for type definition: #{name}")
       %Operations.Definitions{
         name: name,
         description: spec["description"],

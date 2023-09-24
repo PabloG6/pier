@@ -1,0 +1,241 @@
+
+19:03:48.058 [debug] running operation Pier.OpenApi.Operations.Spec
+
+19:03:48.076 [debug] retrieving metadata for module Container
+
+19:03:48.076 [debug] retrieving metadata for module Image
+
+19:03:48.076 [debug] retrieving metadata for module Network
+
+19:03:48.076 [debug] retrieving metadata for module Volume
+
+19:03:48.076 [debug] retrieving metadata for module Exec
+
+19:03:48.076 [debug] retrieving metadata for module Swarm
+
+19:03:48.076 [debug] retrieving metadata for module Node
+
+19:03:48.076 [debug] retrieving metadata for module Service
+
+19:03:48.076 [debug] retrieving metadata for module Task
+
+19:03:48.076 [debug] retrieving metadata for module Secret
+
+19:03:48.076 [debug] retrieving metadata for module Config
+
+19:03:48.076 [debug] retrieving metadata for module Plugin
+
+19:03:48.076 [debug] retrieving metadata for module System
+
+19:03:48.076 [debug] retrieving metadata for type definition: ClusterVolumeSpec
+
+19:03:48.076 [debug] retrieving metadata for type definition: Plugin
+
+19:03:48.076 [debug] retrieving metadata for type definition: DeviceMapping
+
+19:03:48.076 [debug] retrieving metadata for type definition: SwarmInfo
+
+19:03:48.076 [debug] retrieving metadata for type definition: Network
+
+19:03:48.076 [debug] retrieving metadata for type definition: PushImageInfo
+
+19:03:48.076 [debug] retrieving metadata for type definition: Health
+
+19:03:48.076 [debug] retrieving metadata for type definition: NodeDescription
+
+19:03:48.076 [debug] retrieving metadata for type definition: ProcessConfig
+
+19:03:48.076 [debug] retrieving metadata for type definition: NetworkSettings
+
+19:03:48.076 [debug] retrieving metadata for type definition: ContainerWaitExitError
+
+19:03:48.076 [debug] retrieving metadata for type definition: IPAM
+
+19:03:48.076 [debug] retrieving metadata for type definition: EndpointSpec
+
+19:03:48.076 [debug] retrieving metadata for type definition: PluginDevice
+
+19:03:48.076 [debug] retrieving metadata for type definition: PeerNode
+
+19:03:48.076 [debug] retrieving metadata for type definition: Task
+
+19:03:48.076 [debug] retrieving metadata for type definition: Topology
+
+19:03:48.076 [debug] retrieving metadata for type definition: TaskSpec
+
+19:03:48.076 [debug] retrieving metadata for type definition: HealthcheckResult
+
+19:03:48.076 [debug] retrieving metadata for type definition: LocalNodeState
+
+19:03:48.076 [debug] retrieving metadata for type definition: PluginEnv
+
+19:03:48.076 [debug] retrieving metadata for type definition: GraphDriverData
+
+19:03:48.076 [debug] retrieving metadata for type definition: ContainerState
+
+19:03:48.076 [debug] retrieving metadata for type definition: PluginsInfo
+
+19:03:48.076 [debug] retrieving metadata for type definition: OCIDescriptor
+
+19:03:48.076 [debug] retrieving metadata for type definition: NodeState
+
+19:03:48.076 [debug] retrieving metadata for type definition: NodeSpec
+
+19:03:48.076 [debug] retrieving metadata for type definition: ContainerConfig
+
+19:03:48.076 [debug] retrieving metadata for type definition: NodeStatus
+
+19:03:48.076 [debug] retrieving metadata for type definition: PluginMount
+
+19:03:48.076 [debug] retrieving metadata for type definition: RestartPolicy
+
+19:03:48.076 [debug] retrieving metadata for type definition: VolumeCreateOptions
+
+19:03:48.076 [debug] retrieving metadata for type definition: ErrorDetail
+
+19:03:48.076 [debug] retrieving metadata for type definition: PluginInterfaceType
+
+19:03:48.076 [debug] retrieving metadata for type definition: BuildCache
+
+19:03:48.076 [debug] retrieving metadata for type definition: VolumeListResponse
+
+19:03:48.076 [debug] retrieving metadata for type definition: ChangeType
+
+19:03:48.076 [debug] retrieving metadata for type definition: MountPoint
+
+19:03:48.076 [debug] retrieving metadata for type definition: AuthConfig
+
+19:03:48.076 [debug] retrieving metadata for type definition: Config
+
+19:03:48.076 [debug] retrieving metadata for type definition: Service
+
+19:03:48.076 [debug] retrieving metadata for type definition: EventMessage
+
+19:03:48.076 [debug] retrieving metadata for type definition: Reachability
+
+19:03:48.076 [debug] retrieving metadata for type definition: EngineDescription
+
+19:03:48.076 [debug] retrieving metadata for type definition: EndpointSettings
+
+19:03:48.076 [debug] retrieving metadata for type definition: Mount
+
+19:03:48.076 [debug] retrieving metadata for type definition: ServiceSpec
+
+19:03:48.076 [debug] retrieving metadata for type definition: EventActor
+
+19:03:48.076 [debug] retrieving metadata for type definition: CreateImageInfo
+
+19:03:48.076 [debug] retrieving metadata for type definition: Node
+
+19:03:48.077 [debug] retrieving metadata for type definition: ProgressDetail
+
+19:03:48.077 [debug] retrieving metadata for type definition: HostConfig
+
+19:03:48.077 [debug] retrieving metadata for type definition: Port
+
+19:03:48.077 [debug] retrieving metadata for type definition: ManagerStatus
+
+19:03:48.077 [debug] retrieving metadata for type definition: ResourceObject
+
+19:03:48.077 [debug] retrieving metadata for type definition: ImageSummary
+
+19:03:48.077 [debug] retrieving metadata for type definition: Driver
+
+19:03:48.077 [debug] retrieving metadata for type definition: EndpointIPAMConfig
+
+19:03:48.077 [debug] retrieving metadata for type definition: Resources
+
+19:03:48.077 [debug] retrieving metadata for type definition: ContainerCreateResponse
+
+19:03:48.077 [debug] retrieving metadata for type definition: SecretSpec
+
+19:03:48.077 [debug] retrieving metadata for type definition: ImageInspect
+
+19:03:48.077 [debug] retrieving metadata for type definition: JoinTokens
+
+19:03:48.077 [debug] retrieving metadata for type definition: ContainerWaitResponse
+
+19:03:48.077 [debug] retrieving metadata for type definition: Platform
+
+19:03:48.077 [debug] retrieving metadata for type definition: ServiceUpdateResponse
+
+19:03:48.077 [debug] retrieving metadata for type definition: Runtime
+
+19:03:48.077 [debug] retrieving metadata for type definition: SwarmSpec
+
+19:03:48.077 [debug] retrieving metadata for type definition: PluginPrivilege
+
+19:03:48.077 [debug] retrieving metadata for type definition: TaskState
+
+19:03:48.077 [debug] retrieving metadata for type definition: IdResponse
+
+19:03:48.077 [debug] retrieving metadata for type definition: DistributionInspect
+
+19:03:48.077 [debug] retrieving metadata for type definition: FilesystemChange
+
+19:03:48.077 [debug] retrieving metadata for type definition: NetworkingConfig
+
+19:03:48.077 [debug] retrieving metadata for type definition: BuildInfo
+
+19:03:48.077 [debug] retrieving metadata for type definition: ObjectVersion
+
+19:03:48.077 [debug] retrieving metadata for type definition: Volume
+
+19:03:48.077 [debug] retrieving metadata for type definition: IPAMConfig
+
+19:03:48.077 [debug] retrieving metadata for type definition: PortBinding
+
+19:03:48.077 [debug] retrieving metadata for type definition: IndexInfo
+
+19:03:48.077 [debug] retrieving metadata for type definition: RegistryServiceConfig
+
+19:03:48.077 [debug] retrieving metadata for type definition: TLSInfo
+
+19:03:48.077 [debug] retrieving metadata for type definition: ConfigSpec
+
+19:03:48.078 [debug] retrieving metadata for type definition: ClusterInfo
+
+19:03:48.078 [debug] retrieving metadata for type definition: Secret
+
+19:03:48.078 [debug] retrieving metadata for type definition: SystemInfo
+
+19:03:48.078 [debug] retrieving metadata for type definition: ImageID
+
+19:03:48.078 [debug] retrieving metadata for type definition: Limit
+
+19:03:48.078 [debug] retrieving metadata for type definition: Commit
+
+19:03:48.078 [debug] retrieving metadata for type definition: NetworkContainer
+
+19:03:48.078 [debug] retrieving metadata for type definition: PortMap
+
+19:03:48.078 [debug] retrieving metadata for type definition: ImageDeleteResponseItem
+
+19:03:48.078 [debug] retrieving metadata for type definition: Address
+
+19:03:48.078 [debug] retrieving metadata for type definition: NetworkAttachmentConfig
+
+19:03:48.078 [debug] retrieving metadata for type definition: SystemVersion
+
+19:03:48.078 [debug] retrieving metadata for type definition: DeviceRequest
+
+19:03:48.078 [debug] retrieving metadata for type definition: EndpointPortConfig
+
+19:03:48.078 [debug] retrieving metadata for type definition: ClusterVolume
+
+19:03:48.078 [debug] retrieving metadata for type definition: OCIPlatform
+
+19:03:48.078 [debug] retrieving metadata for type definition: GenericResources
+
+19:03:48.078 [debug] retrieving metadata for type definition: ContainerSummary
+
+19:03:48.078 [debug] retrieving metadata for type definition: HealthConfig
+
+19:03:48.078 [debug] retrieving metadata for type definition: Swarm
+
+19:03:48.078 [debug] retrieving metadata for type definition: ErrorResponse
+
+19:03:48.078 [debug] retrieving metadata for type definition: ThrottleDevice
+
+19:03:48.081 [debug] compiling: Docker.Engine.Container
+["defmodule", " ", "Docker", ".Engine", ".Container", " do", "\n", "end"]

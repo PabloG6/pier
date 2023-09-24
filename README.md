@@ -1,6 +1,5 @@
 # Pier
-
-**TODO: Add description**
+Docker SDK for the Docker api written in Elixir
 
 ## Installation
 

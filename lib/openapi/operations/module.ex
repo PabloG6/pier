@@ -1,7 +1,7 @@
 defmodule Pier.OpenApi.Operations.Module do
   require Logger
   alias Pier.OpenApi.Operations
-  defstruct [:name, :description, :methods]
+  defstruct [:module_name, :file_name, :description, :methods, :tag]
 
   def run(%{contents: contents} = blueprint, _options) do
     modules = contents["tags"] |> Enum.map(&retrieve_metada(&1))
@@ -9,10 +9,12 @@ defmodule Pier.OpenApi.Operations.Module do
   end
 
   def retrieve_metada(tag) do
-    Logger.debug("retrieving metadata for module #{tag["name"]}")
+    # Logger.debug("retrieving metadata for module #{tag["name"]}")
     %Operations.Module{
-      name: tag["name"],
-      description: tag["description"]
+      module_name: Module.concat("Docker.Engine", tag["name"]),
+      file_name: tag["name"],
+      description: tag["description"],
+      tag: tag["name"]
     }
   end
 

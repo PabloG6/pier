@@ -1,14 +1,14 @@
-defmodule Pier.OpenApi.Operations.Path do
+defmodule Pier.OpenApi.Operations.Functions do
   alias Pier.OpenApi.Schema.Operation
 
   require Logger
   def run(%{contents: contents} = blueprint, _) do
-    paths = Enum.map(contents["paths"], &build_operations/1)
+    paths = Enum.map(contents["paths"], &build_operations/1) |> Enum.into(%{})
     {:ok, %{blueprint | paths: paths}}
   end
 
   defp build_operations({path, properties}) do
-    Enum.map(properties, &retrieve_methods(path, &1))
+    {path, Enum.map(properties, &retrieve_methods(path, &1))}
 
 
   end
@@ -18,13 +18,14 @@ defmodule Pier.OpenApi.Operations.Path do
     responses = get_success_response(metadata) |> Enum.into(%{})
     body_params = get_params(metadata["parameters"], "body")
     path_params = get_params(metadata["parameters"], "path")
-   query_params = get_params(metadata["parameters"], "path")
-
+   query_params = get_params(metadata["parameters"], "query")
     %Operation{
       path: path,
       method: method,
-      title: responses["title"],
-      tags: responses["tags"],
+      title: metadata["operationId"],
+      tags: metadata["tags"],
+      id: metadata["operationId"],
+      function_name: create_function_name(metadata["operationId"]),
       success_response: responses,
       hijack_response: responses["101"],
       body_params: body_params,
@@ -59,6 +60,11 @@ defmodule Pier.OpenApi.Operations.Path do
   defp combine_params(params) do
       %{name: params["name"], schema: params["schema"], type: params["type"]}
   end
+
+  defp create_function_name(prefix) do
+    prefix |> Macro.underscore() |> String.split("_") |> Enum.reverse() |> Enum.join("_")
+  end
+
 
 
 
