@@ -1,17 +1,17 @@
 defmodule Docker.Engine.Config do
   @moduledoc "Configs are application configurations that can be used by services. Swarm\nmode must be enabled for these endpoints to work.\n"
-  def list_config() do
+  def list() do
   end
 
-  def delete_config() do
+  def delete() do
   end
 
-  def inspect_config() do
+  def inspect() do
   end
 
-  def create_config() do
+  def create() do
   end
 
-  def update_config() do
+  def update() do
   end
 end

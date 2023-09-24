@@ -1,35 +1,35 @@
 defmodule Docker.Engine.Plugin do
   @moduledoc nil
-  def set_plugin() do
+  def set() do
   end
 
-  def privileges_plugin_get() do
+  def plugin_privileges() do
   end
 
-  def upgrade_plugin() do
+  def upgrade() do
   end
 
-  def create_plugin() do
+  def create() do
   end
 
-  def disable_plugin() do
+  def disable() do
   end
 
-  def enable_plugin() do
+  def enable() do
   end
 
-  def list_plugin() do
+  def list() do
   end
 
-  def push_plugin() do
+  def push() do
   end
 
-  def inspect_plugin() do
+  def inspect() do
   end
 
-  def delete_plugin() do
+  def delete() do
   end
 
-  def pull_plugin() do
+  def pull() do
   end
 end

@@ -1,20 +1,20 @@
 defmodule Docker.Engine.Volume do
   @moduledoc "Create and manage persistent storage that can be attached to containers.\n"
-  def delete_volume() do
+  def delete() do
   end
 
-  def inspect_volume() do
+  def inspect() do
   end
 
-  def update_volume() do
+  def update() do
   end
 
-  def list_volume() do
+  def list() do
   end
 
-  def create_volume() do
+  def create() do
   end
 
-  def prune_volume() do
+  def prune() do
   end
 end

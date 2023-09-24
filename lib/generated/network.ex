@@ -1,23 +1,23 @@
 defmodule Docker.Engine.Network do
   @moduledoc "Networks are user-defined networks that containers can be attached to.\nSee the [networking documentation](https://docs.docker.com/network/)\nfor more information.\n"
-  def create_network() do
+  def create() do
   end
 
-  def connect_network() do
+  def connect() do
   end
 
-  def delete_network() do
+  def delete() do
   end
 
-  def inspect_network() do
+  def inspect() do
   end
 
-  def list_network() do
+  def list() do
   end
 
-  def prune_network() do
+  def prune() do
   end
 
-  def disconnect_network() do
+  def disconnect() do
   end
 end

@@ -1,5 +1,5 @@
 defmodule Docker.Engine.System do
   @moduledoc nil
-  def usage_data_system() do
+  def data_usage() do
   end
 end

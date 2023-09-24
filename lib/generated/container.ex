@@ -1,80 +1,80 @@
 defmodule Docker.Engine.Container do
   @moduledoc "Create and manage containers.\n"
-  def logs_container() do
+  def logs() do
   end
 
-  def list_container() do
+  def list() do
   end
 
-  def update_container() do
+  def update() do
   end
 
-  def export_container() do
+  def export() do
   end
 
-  def restart_container() do
+  def restart() do
   end
 
-  def stats_container() do
+  def stats() do
   end
 
-  def kill_container() do
+  def kill() do
   end
 
-  def inspect_container() do
+  def inspect() do
   end
 
-  def exec_container() do
+  def exec() do
   end
 
-  def changes_container() do
+  def changes() do
   end
 
-  def unpause_container() do
+  def unpause() do
   end
 
-  def wait_container() do
+  def wait() do
   end
 
-  def start_container() do
+  def start() do
   end
 
-  def top_container() do
+  def top() do
   end
 
-  def archive_container() do
+  def archive() do
   end
 
-  def info_archive_container() do
+  def archive_info() do
   end
 
-  def archive_container_put() do
+  def container_archive() do
   end
 
-  def prune_container() do
+  def prune() do
   end
 
-  def create_container() do
+  def create() do
   end
 
-  def resize_container() do
+  def resize() do
   end
 
-  def pause_container() do
+  def pause() do
   end
 
-  def stop_container() do
+  def stop() do
   end
 
-  def websocket_attach_container() do
+  def attach_websocket() do
   end
 
-  def delete_container() do
+  def delete() do
   end
 
-  def rename_container() do
+  def rename() do
   end
 
-  def attach_container() do
+  def attach() do
   end
 end

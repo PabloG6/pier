@@ -1,14 +1,14 @@
 defmodule Docker.Engine.Node do
   @moduledoc "Nodes are instances of the Engine participating in a swarm. Swarm mode\nmust be enabled for these endpoints to work.\n"
-  def list_node() do
+  def list() do
   end
 
-  def delete_node() do
+  def delete() do
   end
 
-  def inspect_node() do
+  def inspect() do
   end
 
-  def update_node() do
+  def update() do
   end
 end

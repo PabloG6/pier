@@ -1,38 +1,38 @@
 defmodule Docker.Engine.Image do
   @moduledoc nil
-  def inspect_image() do
+  def inspect() do
   end
 
-  def create_image() do
+  def create() do
   end
 
-  def delete_image() do
+  def delete() do
   end
 
-  def list_image() do
+  def list() do
   end
 
-  def load_image() do
+  def load() do
   end
 
-  def search_image() do
+  def search() do
   end
 
-  def push_image() do
+  def push() do
   end
 
-  def prune_image() do
+  def prune() do
   end
 
-  def history_image() do
+  def history() do
   end
 
-  def get_image() do
+  def get() do
   end
 
-  def all_get_image() do
+  def get_all() do
   end
 
-  def tag_image() do
+  def tag() do
   end
 end

@@ -1,20 +1,20 @@
 defmodule Docker.Engine.Service do
   @moduledoc "Services are the definitions of tasks to run on a swarm. Swarm mode must\nbe enabled for these endpoints to work.\n"
-  def logs_service() do
+  def logs() do
   end
 
-  def list_service() do
+  def list() do
   end
 
-  def delete_service() do
+  def delete() do
   end
 
-  def inspect_service() do
+  def inspect() do
   end
 
-  def create_service() do
+  def create() do
   end
 
-  def update_service() do
+  def update() do
   end
 end
