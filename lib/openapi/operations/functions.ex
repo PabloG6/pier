@@ -61,8 +61,9 @@ defmodule Pier.OpenApi.Operations.Functions do
       %{name: params["name"], schema: params["schema"], type: params["type"]}
   end
 
-  defp create_function_name(prefix) do
-    prefix |> Macro.underscore() |> String.split("_") |> Enum.reverse() |> Enum.join("_")
+  defp create_function_name(method_name) do
+    [_prefix | rest] = method_name |> Macro.underscore() |> String.split("_")
+    rest |> Enum.join("_")
   end
 
 
