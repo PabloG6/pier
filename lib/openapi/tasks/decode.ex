@@ -1,6 +1,6 @@
-defmodule Pier.OpenApi.Operations.Decode do
+defmodule Pier.OpenApi.Tasks.Decode do
 
-  def run(blueprint, opts) do
+  def build(blueprint, opts) do
       {:ok, content} = Keyword.get(opts, :path)
       |> File.read!()
       |> Poison.decode()

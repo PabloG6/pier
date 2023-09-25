@@ -1,9 +1,9 @@
-defmodule Pier.OpenApi.Operations.Compile do
+defmodule Pier.OpenApi.Tasks.Compile do
   alias Pier.OpenApi.Blueprint
   alias Pier.OpenApi.Schema.Operation
   require Logger
 
-  def run(%Blueprint{} = blueprint, _opts) do
+  def build(%Blueprint{} = blueprint, _opts) do
     modules = Enum.map(blueprint.modules, fn module -> {module.module_name, module} end)
 
     for {name, module} <- modules do

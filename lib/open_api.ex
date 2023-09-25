@@ -4,12 +4,12 @@ defmodule Pier.OpenApi do
   alias Pier.OpenApi
   def pipeline(opts) do
     [
-      {Pier.OpenApi.Operations.Decode, opts},
-      {OpenApi.Operations.Spec, opts},
-      {OpenApi.Operations.Module, opts},
-      {Pier.OpenApi.Operations.Definitions, opts},
-      {Pier.OpenApi.Operations.Functions, opts},
-      {Pier.OpenApi.Operations.Compile, opts}
+      {Pier.OpenApi.Tasks.Decode, opts},
+      {OpenApi.Tasks.Spec, opts},
+      {OpenApi.Tasks.Modules, opts},
+      {Pier.OpenApi.Tasks.Definitions, opts},
+      {Pier.OpenApi.Tasks.Functions, opts},
+      {Pier.OpenApi.Tasks.Compile, opts}
 
     ]
   end
@@ -20,7 +20,7 @@ defmodule Pier.OpenApi do
   end
 
   defp run_operation([{todo, options} | remaining], blueprint ) do
-    case todo.run(blueprint, options) do
+    case todo.build(blueprint, options) do
       {:ok, blueprint} -> run_operation(remaining, blueprint)
       {:error, _reason} ->
         Logger.error("failed to run application on #{todo} operation")

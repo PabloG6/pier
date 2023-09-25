@@ -1,8 +1,8 @@
-defmodule Pier.OpenApi.Operations.Functions do
+defmodule Pier.OpenApi.Tasks.Functions do
   alias Pier.OpenApi.Schema.Operation
 
   require Logger
-  def run(%{contents: contents} = blueprint, _) do
+  def build(%{contents: contents} = blueprint, _) do
     paths = Enum.map(contents["paths"], &build_operations/1) |> Enum.into(%{})
     {:ok, %{blueprint | paths: paths}}
   end

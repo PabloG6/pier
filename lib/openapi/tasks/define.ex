@@ -1,9 +1,9 @@
-defmodule Pier.OpenApi.Operations.Definitions do
+defmodule Pier.OpenApi.Tasks.Definitions do
   @moduledoc false
-  alias Pier.OpenApi.Operations
+  alias Pier.OpenApi.Tasks
   use Pier.CustomLogger, name: __MODULE__
   defstruct [:name, :description, :required_params, :properties]
-  def run(%{contents: contents} = blueprint, _opts) do
+  def build(%{contents: contents} = blueprint, _opts) do
       definitions = Enum.map(contents["definitions"],&retrieve_metadata(&1))
       {:ok, %{blueprint | definitions: definitions}}
   end
@@ -11,7 +11,7 @@ defmodule Pier.OpenApi.Operations.Definitions do
   def retrieve_metadata({name, spec}) do
     Logger.metadata(module_name: __MODULE__)
     # Logger.debug("retrieving metadata for type definition: #{name}")
-      %Operations.Definitions{
+      %Tasks.Definitions{
         name: name,
         description: spec["description"],
         required_params: spec["required"],
