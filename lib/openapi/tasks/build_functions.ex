@@ -1,8 +1,8 @@
-defmodule Pier.OpenApi.Operations.Functions do
+defmodule Pier.OpenApi.Tasks.Functions do
   alias Pier.OpenApi.Schema.Operation
 
   require Logger
-  def run(%{contents: contents} = blueprint, _) do
+  def build(%{contents: contents} = blueprint, _) do
     paths = Enum.map(contents["paths"], &build_operations/1) |> Enum.into(%{})
     {:ok, %{blueprint | paths: paths}}
   end
@@ -25,6 +25,7 @@ defmodule Pier.OpenApi.Operations.Functions do
       title: metadata["operationId"],
       tags: metadata["tags"],
       id: metadata["operationId"],
+      headers: Enum.at(metadata["consumes"], 0),
       function_name: create_function_name(metadata["operationId"]),
       success_response: responses,
       hijack_response: responses["101"],
@@ -49,7 +50,7 @@ defmodule Pier.OpenApi.Operations.Functions do
 
   def get_params(metadata, key) do
     Enum.filter(metadata, &(&1["in"] == key))
-    |> Enum.map(&combine_params/1)
+    |> Enum.map(&create_map_from_params/1)
 
 
 
@@ -57,8 +58,8 @@ defmodule Pier.OpenApi.Operations.Functions do
   end
 
 
-  defp combine_params(params) do
-      %{name: params["name"], schema: params["schema"], type: params["type"]}
+  defp create_map_from_params(params) do
+      %{"name" => params["name"], "schema" => "skip_for_now", "type" => params["type"], "required" => params["required"] || false}
   end
 
   defp create_function_name(method_name) do
