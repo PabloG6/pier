@@ -1,38 +1,156 @@
 defmodule Docker.Engine.Image do
   @moduledoc nil
-  def inspect() do
+  def inspect(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}/json",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def create() do
+  def create(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/create", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [
+      %{"name" => "inputImage", "required" => false, "schema" => "skip_for_now", "type" => nil}
+    ])
+    |> Pier.Request.make_request()
   end
 
-  def delete() do
+  def delete(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("delete")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def list() do
+  def list(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/json", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def load() do
+  def load(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/load", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [
+      %{"name" => "imagesTarball", "required" => false, "schema" => "skip_for_now", "type" => nil}
+    ])
+    |> Pier.Request.make_request()
   end
 
-  def search() do
+  def search(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/search", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def push() do
+  def push(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}/push",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def prune() do
+  def prune(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/prune", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def history() do
+  def history(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}/history",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def get() do
+  def get(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}/get",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def get_all() do
+  def get_all(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/images/get", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("get")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 
-  def tag() do
+  def tag(params, opts \\ []) do
+    path =
+      Pier.OpenApi.Params.replace_path_params(
+        "/images/{name}/tag",
+        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
+        params
+      )
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
   end
 end

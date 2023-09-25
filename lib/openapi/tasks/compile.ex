@@ -56,9 +56,15 @@ defmodule Pier.OpenApi.Tasks.Compile do
       # Logger.debug(
       #   "#{operation.function_name} #{operation.path} #{operation.title} #{inspect(operation.tags)}"
       # )
-
       quote do
-        def unquote(String.to_atom(operation.function_name))() do
+
+        def unquote(String.to_atom(operation.function_name))(params, opts \\ []) do
+          path = Pier.OpenApi.Params.replace_path_params(unquote(operation.path), unquote(operation.path_params), params)
+          Pier.Request.new_request(opts)
+          |> Pier.Request.put_endpoint(path)
+          |> Pier.Request.put_method(unquote(operation.method))
+          |> Pier.Request.put_body_params(params, unquote(operation.body_params))
+          |> Pier.Request.make_request()
         end
       end
     end

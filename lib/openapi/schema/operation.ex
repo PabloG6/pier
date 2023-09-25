@@ -13,6 +13,7 @@ defmodule Pier.OpenApi.Schema.Operation do
     :deprecated,
     :hijack_response,
     :body_params,
+    :headers,
     :success_response
   ]
 end
