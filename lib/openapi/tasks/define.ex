@@ -2,29 +2,48 @@ defmodule Pier.OpenApi.Tasks.Definitions do
   @moduledoc false
   alias Pier.OpenApi.Tasks
   use Pier.CustomLogger, name: __MODULE__
-  defstruct [:name, :description, :required_params, :properties]
+  defstruct [:name, :description, :required_params, :properties, :module_name, parameters: []]
   def build(%{contents: contents} = blueprint, _opts) do
       definitions = Enum.map(contents["definitions"],&retrieve_metadata(&1))
       {:ok, %{blueprint | definitions: definitions}}
   end
 
-  def retrieve_metadata({name, spec}) do
+  def retrieve_metadata({name, %{"type" => "object"}  = definition_spec}) do
     Logger.metadata(module_name: __MODULE__)
-    # Logger.debug("retrieving metadata for type definition: #{name}")
-      %Tasks.Definitions{
+    parameters = get_parameters(definition_spec["properties"])
+
+    %Tasks.Definitions{
         name: name,
-        description: spec["description"],
-        required_params: spec["required"],
-        properties: get_properties(spec)
+        module_name: Module.concat(["Docker", "Types", Macro.camelize(name)]),
+        description: definition_spec["description"] || false,
+        required_params: definition_spec["required"],
+        parameters: parameters,
+        properties: nil
       }
   end
 
-  defp get_properties(%{"properties" => properties}) do
-    Enum.map(properties, fn {x, v} -> %{name: x, nullable: v["x-nullable"], type: v["type"]} end)
+  def retrieve_metadata({name, definition_spec}) do
+    Logger.metadata(module_name: __MODULE__)
+    Logger.debug("object types metadata")
+    %Tasks.Definitions{
+        name: name,
+        module_name: Module.concat(["Docker", "Types", Macro.camelize(name)]),
+        description: definition_spec["description"] || false,
+        required_params: definition_spec["required"],
+        properties: nil
+      }
+  end
+
+  @spec get_parameters(any) :: []
+  defp get_parameters(nil), do: []
+  defp get_parameters(properties) do
+    Enum.map(properties, fn {k, _} ->
+      Logger.debug("name of property: #{k}")
+      String.to_atom(k)
+    end)
 
   end
 
-  defp get_properties(_) do
-    nil
-  end
+
+
 end

@@ -25,7 +25,6 @@ defmodule Pier.OpenApi.Tasks.Functions do
       title: metadata["operationId"],
       tags: metadata["tags"],
       id: metadata["operationId"],
-      headers: Enum.at(metadata["consumes"], 0),
       function_name: create_function_name(metadata["operationId"]),
       success_response: responses,
       hijack_response: responses["101"],

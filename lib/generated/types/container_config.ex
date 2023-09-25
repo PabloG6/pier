@@ -1,0 +1,29 @@
+defmodule Docker.Types.ContainerConfig do
+  defstruct [
+    :ArgsEscaped,
+    :AttachStderr,
+    :AttachStdin,
+    :AttachStdout,
+    :Cmd,
+    :Domainname,
+    :Entrypoint,
+    :Env,
+    :ExposedPorts,
+    :Healthcheck,
+    :Hostname,
+    :Image,
+    :Labels,
+    :MacAddress,
+    :NetworkDisabled,
+    :OnBuild,
+    :OpenStdin,
+    :Shell,
+    :StdinOnce,
+    :StopSignal,
+    :StopTimeout,
+    :Tty,
+    :User,
+    :Volumes,
+    :WorkingDir
+  ]
+end

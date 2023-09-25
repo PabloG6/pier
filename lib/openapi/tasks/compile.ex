@@ -4,8 +4,24 @@ defmodule Pier.OpenApi.Tasks.Compile do
   require Logger
 
   def build(%Blueprint{} = blueprint, _opts) do
-    modules = Enum.map(blueprint.modules, fn module -> {module.module_name, module} end)
+    types = Enum.map(blueprint.definitions, fn definition -> {definition.module_name, definition} end)
+      for {module_name, definition} <- types do
+        Logger.debug("building definition: module_name: #{module_name} #{inspect(definition)}")
+        parameters = quote do
+          defstruct unquote(definition.parameters)
+        end
+        module = quote do
 
+          defmodule unquote(definition.module_name) do
+              unquote(parameters)
+          end
+        end
+
+        code = Macro.to_string(module) |> Code.format_string!()
+        File.mkdir("lib/generated/types")
+        File.write!("lib/generated/types/#{Macro.underscore(definition.name)}.ex", code)
+      end
+    modules = Enum.map(blueprint.modules, fn module -> {module.module_name, module} end)
     for {name, module} <- modules do
       Logger.debug("compiling: #{inspect(name)}")
 
