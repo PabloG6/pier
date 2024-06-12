@@ -20,6 +20,7 @@ defmodule Pier.OpenApi do
   end
 
   defp run_operation([{todo, options} | remaining], blueprint ) do
+    Logger.info("#{inspect(todo, pretty: true)} #{inspect(options, pretty: true)}")
     case todo.build(blueprint, options) do
       {:ok, blueprint} -> run_operation(remaining, blueprint)
       {:error, _reason} ->

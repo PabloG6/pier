@@ -1,5 +1,15 @@
 defmodule Docker.Engine.Image do
   @moduledoc nil
+  def build_prune(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/build/prune", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
+  end
+
   def inspect(params, opts \\ []) do
     path =
       Pier.OpenApi.Params.replace_path_params(
@@ -23,6 +33,23 @@ defmodule Docker.Engine.Image do
     |> Pier.Request.put_method("post")
     |> Pier.Request.put_body_params(params, [
       %{"name" => "inputImage", "required" => false, "schema" => "skip_for_now", "type" => nil}
+    ])
+    |> Pier.Request.make_request()
+  end
+
+  def commit(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/commit", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [
+      %{
+        "name" => "containerConfig",
+        "required" => false,
+        "schema" => "skip_for_now",
+        "type" => nil
+      }
     ])
     |> Pier.Request.make_request()
   end
@@ -86,6 +113,18 @@ defmodule Docker.Engine.Image do
     |> Pier.Request.put_endpoint(path)
     |> Pier.Request.put_method("post")
     |> Pier.Request.put_body_params(params, [])
+    |> Pier.Request.make_request()
+  end
+
+  def build(params, opts \\ []) do
+    path = Pier.OpenApi.Params.replace_path_params("/build", [], params)
+
+    Pier.Request.new_request(opts)
+    |> Pier.Request.put_endpoint(path)
+    |> Pier.Request.put_method("post")
+    |> Pier.Request.put_body_params(params, [
+      %{"name" => "inputStream", "required" => false, "schema" => "skip_for_now", "type" => nil}
+    ])
     |> Pier.Request.make_request()
   end
 

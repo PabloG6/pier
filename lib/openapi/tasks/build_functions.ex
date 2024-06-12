@@ -2,12 +2,15 @@ defmodule Pier.OpenApi.Tasks.Functions do
   alias Pier.OpenApi.Schema.Operation
 
   require Logger
+
   def build(%{contents: contents} = blueprint, _) do
     paths = Enum.map(contents["paths"], &build_operations/1) |> Enum.into(%{})
     {:ok, %{blueprint | paths: paths}}
   end
 
   defp build_operations({path, properties}) do
+
+
     {path, Enum.map(properties, &retrieve_methods(path, &1))}
 
 
@@ -25,13 +28,15 @@ defmodule Pier.OpenApi.Tasks.Functions do
       title: metadata["operationId"],
       tags: metadata["tags"],
       id: metadata["operationId"],
-      function_name: create_function_name(metadata["operationId"]),
+      function_name: create_function_name(metadata["tags"], metadata["operationId"]),
       success_response: responses,
       hijack_response: responses["101"],
       body_params: body_params,
       path_params: path_params,
       query_params: query_params
     }
+
+
   end
 
 
@@ -61,9 +66,18 @@ defmodule Pier.OpenApi.Tasks.Functions do
       %{"name" => params["name"], "schema" => "skip_for_now", "type" => params["type"], "required" => params["required"] || false}
   end
 
-  defp create_function_name(method_name) do
-    [_prefix | rest] = method_name |> Macro.underscore() |> String.split("_")
-    rest |> Enum.join("_")
+  defp create_function_name([tag | _], method_name) do
+    dbg(tag)
+    dbg(method_name)
+
+    if String.contains?(method_name, tag) do
+        method_name  |> String.replace(tag, "") |> Macro.underscore()
+
+    else
+       Macro.underscore(method_name)
+    end
+
+
   end
 
 

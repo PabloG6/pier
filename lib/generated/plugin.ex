@@ -17,7 +17,7 @@ defmodule Docker.Engine.Plugin do
     |> Pier.Request.make_request()
   end
 
-  def plugin_privileges(params, opts \\ []) do
+  def get_privileges(params, opts \\ []) do
     path = Pier.OpenApi.Params.replace_path_params("/plugins/privileges", [], params)
 
     Pier.Request.new_request(opts)

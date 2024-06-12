@@ -22,7 +22,7 @@ defmodule Docker.Engine.Exec do
     |> Pier.Request.make_request()
   end
 
-  def exec(params, opts \\ []) do
+  def container(params, opts \\ []) do
     path =
       Pier.OpenApi.Params.replace_path_params(
         "/containers/{id}/exec",

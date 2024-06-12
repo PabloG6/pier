@@ -117,23 +117,6 @@ defmodule Docker.Engine.Container do
     |> Pier.Request.make_request()
   end
 
-  def exec(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/containers/{id}/exec",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
-
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "execConfig", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
-  end
-
   def changes(params, opts \\ []) do
     path =
       Pier.OpenApi.Params.replace_path_params(
@@ -239,7 +222,7 @@ defmodule Docker.Engine.Container do
     |> Pier.Request.make_request()
   end
 
-  def container_archive(params, opts \\ []) do
+  def put_archive(params, opts \\ []) do
     path =
       Pier.OpenApi.Params.replace_path_params(
         "/containers/{id}/archive",

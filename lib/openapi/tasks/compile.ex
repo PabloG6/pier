@@ -5,8 +5,7 @@ defmodule Pier.OpenApi.Tasks.Compile do
 
   def build(%Blueprint{} = blueprint, _opts) do
     types = Enum.map(blueprint.definitions, fn definition -> {definition.module_name, definition} end)
-      for {module_name, definition} <- types do
-        Logger.debug("building definition: module_name: #{module_name} #{inspect(definition)}")
+      for {_module_name, definition} <- types do
         parameters = quote do
           defstruct unquote(definition.parameters)
         end
@@ -23,11 +22,20 @@ defmodule Pier.OpenApi.Tasks.Compile do
       end
     modules = Enum.map(blueprint.modules, fn module -> {module.module_name, module} end)
     for {name, module} <- modules do
-      Logger.debug("compiling: #{inspect(name)}")
 
       # search for all function definitions in the paths variable"
 
-      functions = Enum.filter(blueprint.paths, fn {path, _} -> String.contains?(path, String.downcase(module.tag)) end) |> List.flatten()
+
+      functions = Enum.filter(blueprint.paths, fn {_, functions} ->
+        tags = Enum.map(functions, fn func ->
+          [tag | _] = func.tags
+          String.downcase(tag)
+        end)
+        Enum.any?(tags, fn tag ->
+          tag == String.downcase(module.tag)
+
+        end)
+      end) |> List.flatten()
       Enum.each(functions, fn {path, v} ->
 
         Enum.each(v, &Logger.debug("#{path} #{&1.title}"))
@@ -69,9 +77,9 @@ defmodule Pier.OpenApi.Tasks.Compile do
 
   defp build_functions({_path, funcs}) do
     body = fn %Operation{} = operation ->
-      # Logger.debug(
-      #   "#{operation.function_name} #{operation.path} #{operation.title} #{inspect(operation.tags)}"
-      # )
+      Logger.debug(
+        "#{operation.function_name} #{operation.path} #{operation.title} #{inspect(operation.tags)}"
+      )
       quote do
 
         def unquote(String.to_atom(operation.function_name))(params, opts \\ []) do
