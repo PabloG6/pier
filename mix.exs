@@ -19,6 +19,16 @@ defmodule Pier.MixProject do
     ]
   end
 
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README", "LICENSE*"],
+      maintainers: ["Pablo Grant"],
+      licenses: ["MIT LICENSE"],
+      links: %{"GitHub" => "https://github.com/fteem/eight_ball"}
+    ]
+
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
