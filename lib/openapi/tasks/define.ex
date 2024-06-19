@@ -23,8 +23,6 @@ defmodule Pier.OpenApi.Tasks.Definitions do
   end
 
   def retrieve_metadata({name, definition_spec}) do
-    Logger.metadata(module_name: __MODULE__)
-    Logger.debug("object types metadata")
     %Tasks.Definitions{
         name: name,
         module_name: Module.concat(["Docker", "Types", Macro.camelize(name)]),
@@ -38,7 +36,6 @@ defmodule Pier.OpenApi.Tasks.Definitions do
   defp get_parameters(nil), do: []
   defp get_parameters(properties) do
     Enum.map(properties, fn {k, _} ->
-      Logger.debug("name of property: #{k}")
       String.to_atom(k)
     end)
 

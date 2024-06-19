@@ -1,59 +1,50 @@
 defmodule Docker.Engine.Node do
   @moduledoc "Nodes are instances of the Engine participating in a swarm. Swarm mode\nmust be enabled for these endpoints to work.\n"
-  def list(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/nodes", [], params)
+  def list(opts \\ []) do
+    optional_params = %{filters: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/nodes")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def delete(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/nodes/{id}",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def delete(opts \\ []) do
+    optional_params = %{force: :query, id: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("delete")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/nodes/{id}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:delete, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/nodes/{id}",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def inspect(opts \\ []) do
+    optional_params = %{id: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/nodes/{id}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def update(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/nodes/{id}/update",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def update(opts \\ []) do
+    optional_params = %{id: :path, version: :query, body: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/nodes/{id}/update")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 end

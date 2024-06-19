@@ -25,6 +25,9 @@ defmodule Pier.MixProject do
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:poison, "~> 5.0"},
+      {:tesla, "~> 1.10.0"},
+      {:hackney, "~> 1.20.1"},
+      {:finch, "~> 0.18.0"},
       {:logger_file_backend, "~> 0.0.10"}
 
     ]

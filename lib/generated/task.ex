@@ -1,42 +1,48 @@
 defmodule Docker.Engine.Task do
   @moduledoc "A task is a container running on a swarm. It is the atomic scheduling unit\nof swarm. Swarm mode must be enabled for these endpoints to work.\n"
-  def list(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/tasks", [], params)
+  def list(opts \\ []) do
+    optional_params = %{filters: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/tasks")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def logs(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/tasks/{id}/logs",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def logs(opts \\ []) do
+    optional_params =
+      %{
+        id: :path,
+        stdout: :query,
+        stderr: :query,
+        tail: :query,
+        since: :query,
+        details: :query,
+        follow: :query,
+        timestamps: :query
+      }
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/tasks/{id}/logs")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/tasks/{id}",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def inspect(opts \\ []) do
+    optional_params = %{id: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/tasks/{id}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 end

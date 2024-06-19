@@ -12,7 +12,6 @@ defmodule Pier.OpenApi.Tasks.Modules do
   end
 
   def retrieve_metada(tag) do
-    # Logger.debug("retrieving metadata for module #{tag["name"]}")
     %Tasks.Modules{
       module_name: Module.concat("Docker.Engine", tag["name"]),
       file_name: tag["name"],

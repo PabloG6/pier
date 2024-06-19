@@ -1,71 +1,62 @@
 defmodule Docker.Engine.Config do
   @moduledoc "Configs are application configurations that can be used by services. Swarm\nmode must be enabled for these endpoints to work.\n"
-  def list(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/configs", [], params)
+  def list(opts \\ []) do
+    optional_params = %{filters: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
-  end
-
-  def delete(params, opts \\ []) do
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/configs/{id}",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/configs")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("delete")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
+  def delete(opts \\ []) do
+    optional_params = %{id: :path}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/configs/{id}",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/configs/{id}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:delete, path, headers)
   end
 
-  def create(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/configs/create", [], params)
+  def inspect(opts \\ []) do
+    optional_params = %{id: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
-  end
-
-  def update(params, opts \\ []) do
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/configs/{id}/update",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/configs/{id}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
+  end
+
+  def create(opts \\ []) do
+    optional_params = %{body: :body}
+
+    path =
+      Pier.Request.generate_base_url("/configs/create")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
+  end
+
+  def update(opts \\ []) do
+    optional_params = %{id: :path, version: :query, body: :body}
+
+    path =
+      Pier.Request.generate_base_url("/configs/{id}/update")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 end

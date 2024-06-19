@@ -1,71 +1,50 @@
 defmodule Docker.Engine.Exec do
   @moduledoc "Run new commands inside running containers. Refer to the\n[command-line reference](https://docs.docker.com/engine/reference/commandline/exec/)\nfor more information.\n\nTo exec a command in a container, you first need to create an exec instance,\nthen start it. These two API endpoints are wrapped up in a single command-line\ncommand, `docker exec`.\n"
-  def start(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/exec/{id}/start",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def start(opts \\ []) do
+    optional_params = %{id: :path, execStartConfig: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{
-        "name" => "execStartConfig",
-        "required" => false,
-        "schema" => "skip_for_now",
-        "type" => nil
-      }
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/exec/{id}/start")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def container(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/containers/{id}/exec",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def container(opts \\ []) do
+    optional_params = %{id: :path, execConfig: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "execConfig", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/containers/{id}/exec")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def resize(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/exec/{id}/resize",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def resize(opts \\ []) do
+    optional_params = %{id: :path, h: :query, w: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/exec/{id}/resize")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
-    path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/exec/{id}/json",
-        [%{"name" => "id", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+  def inspect(opts \\ []) do
+    optional_params = %{id: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/exec/{id}/json")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 end

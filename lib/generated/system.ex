@@ -1,74 +1,78 @@
 defmodule Docker.Engine.System do
   @moduledoc nil
-  def info(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/info", nil, params)
+  def info(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/info")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def data_usage(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/system/df", [], params)
+  def data_usage(opts \\ []) do
+    optional_params = %{type: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/system/df")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def events(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/events", [], params)
+  def events(opts \\ []) do
+    optional_params = %{filters: :query, until: :query, since: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/events")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def auth(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/auth", [], params)
+  def auth(opts \\ []) do
+    optional_params = %{authConfig: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "authConfig", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/auth")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def version(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/version", nil, params)
+  def version(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/version")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def ping(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/_ping", nil, params)
+  def ping(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/_ping")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def ping_head(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/_ping", nil, params)
+  def ping_head(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/_ping")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("head")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:head, path, headers)
   end
 end

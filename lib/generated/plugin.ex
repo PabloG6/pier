@@ -1,155 +1,134 @@
 defmodule Docker.Engine.Plugin do
   @moduledoc nil
-  def set(params, opts \\ []) do
+  def set(opts \\ []) do
+    optional_params = %{name: :path, body: :body}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/set",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/{name}/set")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def get_privileges(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/plugins/privileges", [], params)
+  def get_privileges(opts \\ []) do
+    optional_params = %{remote: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
-  end
-
-  def upgrade(params, opts \\ []) do
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/upgrade",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/privileges")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def create(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/plugins/create", [], params)
+  def upgrade(opts \\ []) do
+    optional_params = %{name: :path, remote: :query, body: :body, "X-Registry-Auth": :header}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "tarContext", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
-  end
-
-  def disable(params, opts \\ []) do
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/disable",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/{name}/upgrade")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def enable(params, opts \\ []) do
+  def create(opts \\ []) do
+    optional_params = %{name: :query, tarContext: :body}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/enable",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/create")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def list(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/plugins", [], params)
+  def disable(opts \\ []) do
+    optional_params = %{force: :query, name: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
-  end
-
-  def push(params, opts \\ []) do
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/push",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/{name}/disable")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
+  def enable(opts \\ []) do
+    optional_params = %{timeout: :query, name: :path}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}/json",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins/{name}/enable")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def delete(params, opts \\ []) do
+  def list(opts \\ []) do
+    optional_params = %{filters: :query}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/plugins/{name}",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/plugins")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("delete")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def pull(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/plugins/pull", [], params)
+  def push(opts \\ []) do
+    optional_params = %{name: :path}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/plugins/{name}/push")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
+  end
+
+  def inspect(opts \\ []) do
+    optional_params = %{name: :path}
+
+    path =
+      Pier.Request.generate_base_url("/plugins/{name}/json")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
+  end
+
+  def delete(opts \\ []) do
+    optional_params = %{force: :query, name: :path}
+
+    path =
+      Pier.Request.generate_base_url("/plugins/{name}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:delete, path, headers)
+  end
+
+  def pull(opts \\ []) do
+    optional_params = %{name: :query, remote: :query, body: :body, "X-Registry-Auth": :header}
+
+    path =
+      Pier.Request.generate_base_url("/plugins/pull")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 end

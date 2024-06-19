@@ -1,81 +1,74 @@
 defmodule Docker.Engine.Volume do
   @moduledoc "Create and manage persistent storage that can be attached to containers.\n"
-  def delete(params, opts \\ []) do
+  def delete(opts \\ []) do
+    optional_params = %{force: :query, name: :path}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/volumes/{name}",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/volumes/{name}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("delete")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:delete, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
+  def inspect(opts \\ []) do
+    optional_params = %{name: :path}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/volumes/{name}",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/volumes/{name}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def update(params, opts \\ []) do
+  def update(opts \\ []) do
+    optional_params = %{name: :path, version: :query, body: :body}
+
     path =
-      Pier.OpenApi.Params.replace_path_params(
-        "/volumes/{name}",
-        [%{"name" => "name", "required" => true, "schema" => "skip_for_now", "type" => "string"}],
-        params
-      )
+      Pier.Request.generate_base_url("/volumes/{name}")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("put")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => false, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:put, path, headers)
   end
 
-  def list(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/volumes", [], params)
+  def list(opts \\ []) do
+    optional_params = %{filters: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/volumes")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def create(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/volumes/create", [], params)
+  def create(opts \\ []) do
+    optional_params = %{volumeConfig: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "volumeConfig", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/volumes/create")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def prune(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/volumes/prune", [], params)
+  def prune(opts \\ []) do
+    optional_params = %{filters: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/volumes/prune")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 end

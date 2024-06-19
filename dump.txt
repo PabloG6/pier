@@ -1,0 +1,532 @@
+Compiling 3 files (.ex)
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "update",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "inputImage",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "tarContext",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "containerConfig",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "execStartConfig",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "execConfig",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "volumeConfig",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "networkConfig",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "container",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "inputStream",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "imagesTarball",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "authConfig",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "inputStream",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> nil
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "container",
+    "required" => true,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> [
+  %{
+    "name" => "body",
+    "required" => false,
+    "schema" => "skip_for_now",
+    "type" => nil
+  }
+]
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+
+[lib/openapi/tasks/build_functions.ex:20: Pier.OpenApi.Tasks.Functions.retrieve_methods/2]
+body_params #=> []
+

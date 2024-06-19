@@ -1,80 +1,89 @@
 defmodule Docker.Engine.Swarm do
   @moduledoc "Engines can be clustered together in a swarm. Refer to the\n[swarm mode documentation](https://docs.docker.com/engine/swarm/)\nfor more information.\n"
-  def init(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/init", [], params)
+  def init(opts \\ []) do
+    optional_params = %{body: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/swarm/init")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def update(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/update", [], params)
+  def update(opts \\ []) do
+    optional_params =
+      %{
+        version: :query,
+        body: :body,
+        rotateWorkerToken: :query,
+        rotateManagerToken: :query,
+        rotateManagerUnlockKey: :query
+      }
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/swarm/update")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def join(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/join", [], params)
+  def join(opts \\ []) do
+    optional_params = %{body: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/swarm/join")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def leave(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/leave", [], params)
+  def leave(opts \\ []) do
+    optional_params = %{force: :query}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/swarm/leave")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 
-  def inspect(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm", nil, params)
+  def inspect(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/swarm")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def unlockkey(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/unlockkey", nil, params)
+  def unlockkey(opts \\ []) do
+    path =
+      Pier.Request.generate_base_url("/swarm/unlockkey")
+      |> Pier.Request.add_path_params(%{}, opts)
+      |> Pier.Request.add_query_params(%{}, opts)
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("get")
-    |> Pier.Request.put_body_params(params, nil)
-    |> Pier.Request.make_request()
+    headers = Pier.Request.build_headers([], %{}, opts)
+    Pier.Request.build(:get, path, headers)
   end
 
-  def unlock(params, opts \\ []) do
-    path = Pier.OpenApi.Params.replace_path_params("/swarm/unlock", [], params)
+  def unlock(opts \\ []) do
+    optional_params = %{body: :body}
 
-    Pier.Request.new_request(opts)
-    |> Pier.Request.put_endpoint(path)
-    |> Pier.Request.put_method("post")
-    |> Pier.Request.put_body_params(params, [
-      %{"name" => "body", "required" => true, "schema" => "skip_for_now", "type" => nil}
-    ])
-    |> Pier.Request.make_request()
+    path =
+      Pier.Request.generate_base_url("/swarm/unlock")
+      |> Pier.Request.add_path_params(optional_params, opts)
+      |> Pier.Request.add_query_params(optional_params, opts)
+
+    headers = Pier.Request.build_headers([], optional_params, opts)
+    Pier.Request.build(:post, path, headers)
   end
 end
