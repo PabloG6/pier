@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Node do
+defmodule Pier.Engine.Node do
   @moduledoc "Nodes are instances of the Engine participating in a swarm. Swarm mode\nmust be enabled for these endpoints to work.\n"
   def list(opts \\ []) do
     optional_params = %{filters: :query}

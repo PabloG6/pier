@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Container do
+defmodule Pier.Engine.Container do
   @moduledoc "Create and manage containers.\n"
   def logs(opts \\ []) do
     optional_params =
@@ -195,9 +195,9 @@ defmodule Docker.Engine.Container do
       %{
         id: :path,
         path: :query,
-        inputStream: :body,
         noOverwriteDirNonDir: :query,
-        copyUIDGID: :query
+        copyUIDGID: :query,
+        inputStream: :body
       }
 
     path =

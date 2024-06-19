@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Image do
+defmodule Pier.Engine.Image do
   @moduledoc nil
   def build_prune(opts \\ []) do
     optional_params = %{all: :query, filters: :query, "keep-storage": :query}
@@ -30,9 +30,9 @@ defmodule Docker.Engine.Image do
         message: :query,
         tag: :query,
         repo: :query,
-        "X-Registry-Auth": :header,
-        platform: :query,
         changes: :query,
+        platform: :query,
+        "X-Registry-Auth": :header,
         fromImage: :query,
         fromSrc: :query,
         inputImage: :body
@@ -55,8 +55,8 @@ defmodule Docker.Engine.Image do
         author: :query,
         comment: :query,
         repo: :query,
-        changes: :query,
         container: :query,
+        changes: :query,
         containerConfig: :body
       }
 
@@ -141,12 +141,12 @@ defmodule Docker.Engine.Image do
         labels: :query,
         outputs: :query,
         t: :query,
-        pull: :query,
         inputStream: :body,
         platform: :query,
         dockerfile: :query,
         extrahosts: :query,
         cachefrom: :query,
+        pull: :query,
         forcerm: :query,
         memswap: :query,
         cpushares: :query,
@@ -167,7 +167,6 @@ defmodule Docker.Engine.Image do
       |> Pier.Request.add_query_params(optional_params, opts)
 
     headers = Pier.Request.build_headers([], optional_params, opts)
-    IO.inspect headers
     Pier.Request.build(:post, path, headers)
   end
 

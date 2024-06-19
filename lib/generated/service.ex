@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Service do
+defmodule Pier.Engine.Service do
   @moduledoc "Services are the definitions of tasks to run on a swarm. Swarm mode must\nbe enabled for these endpoints to work.\n"
   def logs(opts \\ []) do
     optional_params =

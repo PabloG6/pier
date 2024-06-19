@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Plugin do
+defmodule Pier.Engine.Plugin do
   @moduledoc nil
   def set(opts \\ []) do
     optional_params = %{name: :path, body: :body}

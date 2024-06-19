@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Volume do
+defmodule Pier.Engine.Volume do
   @moduledoc "Create and manage persistent storage that can be attached to containers.\n"
   def delete(opts \\ []) do
     optional_params = %{force: :query, name: :path}

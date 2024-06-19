@@ -1,4 +1,4 @@
-defmodule Docker.Engine.Secret do
+defmodule Pier.Engine.Secret do
   @moduledoc "Secrets are sensitive data that can be used by services. Swarm mode must\nbe enabled for these endpoints to work.\n"
   def update(opts \\ []) do
     optional_params = %{id: :path, version: :query, body: :body}
