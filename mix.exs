@@ -6,7 +6,7 @@ defmodule Pier.MixProject do
       app: :pier,
       version: "0.1.0",
       elixir: "~> 1.15",
-
+      package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -21,10 +21,11 @@ defmodule Pier.MixProject do
 
   defp package do
     [
-      files: ["lib", "mix.exs", "README", "LICENSE*"],
+      files: ["lib", "mix.exs", "README.md", "LICENSE*"],
       maintainers: ["Pablo Grant"],
-      licenses: ["MIT LICENSE"],
-      links: %{"GitHub" => "https://github.com/fteem/eight_ball"}
+      licenses: ["MIT"],
+      description: "A wrapper library for the docker api",
+      links: %{"GitHub" => "https://github.com/PabloG6/pier"}
     ]
 
   end
@@ -34,6 +35,7 @@ defmodule Pier.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:poison, "~> 5.0"},
       {:tesla, "~> 1.10.0"},
       {:hackney, "~> 1.20.1"},

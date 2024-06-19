@@ -1,22 +1,24 @@
 # Pier
-Docker SDK for the Docker api written in Elixir
 
-## Installation
+Pier is a lightweight Docker SDK that enables basic requests and streaming responses from the Docker engine using the Finch library. 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pier` to your list of dependencies in `mix.exs`:
+## Status
+
+**Note:** Pier is currently under active development. Frequent updates may introduce breaking changes, so it is not yet production-ready.
+
+## Getting Started
+
+You can find the project on GitHub: [PabloG6/pier](https://github.com/PabloG6/pier).
+
 
 ```elixir
-def deps do
-  [
-    {:pier, "~> 0.1.0"}
-  ]
-end
+  defp deps() do
+    [
+      {:pier, "~> 0.1.0"}
+    ]
+  end
 ```
+## Contributions
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/pier>.
+Any help or feedback is appreciated! Feel free to contribute to the project by submitting issues or pull requests.
 
-## How to
-Run `mix
