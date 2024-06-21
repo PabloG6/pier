@@ -19,7 +19,7 @@ defmodule Pier.Request do
 
   def request(request) do
     name = Application.fetch_env!(:pier, :name)
-    request |> Finch.request(name)
+    request |> Finch.request(name, receive_timeout: 60_000 * 3)
   end
 
   def stream(request, {pid, caller}) do
