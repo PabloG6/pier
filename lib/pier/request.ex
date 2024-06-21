@@ -1,7 +1,9 @@
 defmodule Pier.Request do
   alias Finch
   @default_scheme :unix
-
+  @default_opts [
+    receive_timeout: 60_000 * 3
+  ]
   def build(method, url, headers \\ [], body \\ [], opts \\ []) do
     scheme = Application.get_env(:pier, :scheme, @default_scheme)
     unix_socket = Application.get_env(:pier, :unix_socket, "/var/run/docker.sock")
@@ -19,7 +21,9 @@ defmodule Pier.Request do
 
   def request(request) do
     name = Application.fetch_env!(:pier, :name)
-    request |> Finch.request(name, receive_timeout: 60_000 * 3)
+    merged_opts = Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
+    IO.inspect merged_opts
+    request |> Finch.request(name, merged_opts)
   end
 
   def stream(request, {pid, caller}) do
