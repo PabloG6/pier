@@ -22,18 +22,22 @@ defmodule Pier.Request do
   def request(request) do
     name = Application.fetch_env!(:pier, :name)
     merged_opts = Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
-    IO.inspect merged_opts
+
     request |> Finch.request(name, merged_opts)
   end
 
-  def stream(request, {pid, caller}) do
+  def stream(request, _, acc \\ "")
+
+  def stream(request, {pid, caller}, acc) do
     name = Application.fetch_env(:pier, :name)
-    request |> Finch.stream(name, nil, &GenServer.cast(pid, {caller, {&1, &2}}))
+    request |> Finch.stream(name, acc, &GenServer.cast(pid, {caller, {&1, &2}}))
   end
 
-  def stream(request, stream_fn) do
+  def stream(request, stream_fn, acc) do
     name = Application.fetch_env!(:pier, :name)
-    request |> Finch.stream(name, [], stream_fn)
+    merged_opts = Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
+
+    request |> Finch.stream(name, acc, stream_fn, merged_opts)
   end
 
   @spec generate_base_url(any()) :: binary() | URI.t()
