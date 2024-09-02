@@ -21,7 +21,9 @@ defmodule Pier.Request do
 
   def request(request) do
     name = Application.fetch_env!(:pier, :name)
-    merged_opts = Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
+    settings = Application.get_all_env(:pier)
+
+    merged_opts = Keyword.merge(@default_opts, settings) |> Keyword.delete(:name)
 
     request |> Finch.request(name, merged_opts)
   end
@@ -35,7 +37,9 @@ defmodule Pier.Request do
 
   def stream(request, stream_fn, acc) do
     name = Application.fetch_env!(:pier, :name)
-    merged_opts = Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
+
+    merged_opts =
+      Application.get_all_env(:pier) |> Keyword.merge(@default_opts) |> Keyword.delete(:name)
 
     request |> Finch.stream(name, acc, stream_fn, merged_opts)
   end
@@ -66,7 +70,6 @@ defmodule Pier.Request do
     end
   end
 
-
   def build_headers(headers, definitions, [{key, value} | tail]) do
     case definitions do
       %{^key => :header} ->
@@ -78,7 +81,6 @@ defmodule Pier.Request do
   end
 
   def build_headers(headers, _definitions, []), do: headers
-
 
   def add_query_params(base_url, definitions, opts) do
     uri = URI.parse(base_url)
